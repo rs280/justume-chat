@@ -6,7 +6,7 @@ export function NavBar( props ){
     return (
         <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="#home"> 
-                Polygon Chat App 
+                JustUMe Chat
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
