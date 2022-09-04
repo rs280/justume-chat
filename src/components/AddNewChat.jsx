@@ -10,7 +10,7 @@ export function AddNewChat( props ){
     return (
         <div className="AddNewChat" style={{ position:"absolute", bottom:"0px", padding:"10px 45px 0 45px", margin:"0 95px 0 0", width:"97%" }}>
             <Button variant="success" className="mb-2" onClick={ handleShow }>
-                + NewChat
+                + New Chat
             </Button>
             <Modal show={ show } onHide={ handleClose }>
                 <Modal.Header closeButton>

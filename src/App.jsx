@@ -1,14 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
+
 import { NavBar, ChatCard, Message, AddNewChat } from './components/Components.js';
 import { ethers } from "ethers";
 import { abi } from "./abi";
+
+
 
 // Add the contract address inside the quotes
 const CONTRACT_ADDRESS = "0xb4bE9597E089588627cc6BA94addD134E6fab1D8";
 
 export function App( props ) {  
+    
     const [friends, setFriends] = useState(null);
     const [myName, setMyName] = useState(null);
     const [myPublicKey, setMyPublicKey] = useState(null);
@@ -16,7 +20,8 @@ export function App( props ) {
     const [activeChatMessages, setActiveChatMessages] = useState(null);
     const [showConnectButton, setShowConnectButton] = useState("block");
     const [myContract, setMyContract] = useState(null);
-  
+   
+
     // Save the contents of abi in a variable
     const contractABI = abi; 
     let provider;
@@ -146,7 +151,7 @@ export function App( props ) {
     }) : null;
 
     return (
-        <Container style={{ padding:"0px", border:"1px solid grey" }}>
+        <Container >
             {/* This shows the navbar with connect button */}
             <NavBar username={ myName } login={ async () => login() } showButton={ showConnectButton } />
             <Row>
@@ -186,15 +191,23 @@ export function App( props ) {
                         </div>
                         {/* The form with send button and message input fields */}
                         <div className="SendMessage"  style={{ borderTop:"2px solid black", position:"relative", bottom:"0px", padding:"10px 45px 0 45px", margin:"0 95px 0 0", width:"97%" }}>
+                      
                             <Form onSubmit={ (e) => {
 			                	e.preventDefault();
 			                	sendMessage( document.getElementById( 'messageData' ).value );
 			                	document.getElementById( 'messageData' ).value = "";
 			                }}>
+                                
+        
+                               
+
+      
                                 <Form.Row className="align-items-center">
                                     <Col xs={9}>
                                         <Form.Control id="messageData" className="mb-2"  placeholder="Send Message" />
+                                        
                                     </Col>
+                                    
                                     <Col >
                                       <Button className="mb-2" style={{ float:"right" }} onClick={ () => {
                                           sendMessage( document.getElementById( 'messageData' ).value );
@@ -209,6 +222,8 @@ export function App( props ) {
                     </div>
                 </Col>
             </Row>
+           
         </Container>
+       
     );
 }
