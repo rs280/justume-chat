@@ -17,7 +17,8 @@ export function NavBar( props ){
                     <div style={{ display: props.showButton === "none" ? "block" : "none" }}>
                         Signed in as: 
                         <a href="#"> 
-                            { props.username }
+                        <p> </p>
+                             { props.username }
                         </a>
                     </div>
                 </Navbar.Text>
